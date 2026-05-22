@@ -1,4 +1,4 @@
-// =======// DADOS PRINCIPAIS
+// DADOS PRINCIPAIS
 
 const NOME = "Giovanna Melo";
 
@@ -47,10 +47,8 @@ let curso = {
   disciplinaAtual: "Design focado no usuário"
 };
 
-// =========================
-// HABILIDADES
-// =========================
 
+// HABILIDADES
 let habilidades = [
   "HTML5",
   "CSS3",
@@ -244,7 +242,7 @@ function mostrarDiaSemana() {
   }
 
   document.getElementById("diaAtual").innerText =
-    `Hoje é: ${diaEscrito}`;
+  diaEscrito;
 }
 
 // MOSTRAR HABILIDADES
@@ -262,6 +260,7 @@ function mostrarHabilidades() {
     `;
   });
 }
+
 
 // FUNÇÕES DO QUIZ
 
@@ -352,7 +351,6 @@ function configurarEventos() {
 
 
 // INICIAR SISTEMA
-
 function iniciarPortfolio() {
 
   mostrarDadosPessoais();
@@ -390,8 +388,6 @@ function iniciarPortfolio() {
 
 
 // FORMULÁRIO
-
-
 const formulario =
   document.getElementById("formularioContato");
 
@@ -478,7 +474,6 @@ formulario.addEventListener("submit", function (evento) {
 });
 
 // API GITHUB
-
 async function buscarProjetosGithub() {
 
   const listaProjetos =
@@ -528,7 +523,6 @@ buscarProjetosGithub();
 
 
 // MODO ESCURO
-
 const botaoModo =
   document.getElementById("modoEscuroClaro");
 

@@ -542,3 +542,40 @@ footer p {
   background:
     #e8dfd1;
 }
+
+/* STATUS ACADÊMICO DIVIDIDO */
+
+.status-card {
+
+  padding: 0 !important;
+
+  display: grid;
+
+  grid-template-rows: 1fr 1fr;
+}
+
+.status-top,
+.status-bottom {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 35px 20px;
+}
+
+.status-top {
+
+  border-bottom:
+    1px solid rgba(0,0,0,0.35);
+}
+
+.dark-mode .status-top {
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.2);
+}
