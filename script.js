@@ -1,6 +1,4 @@
-// =========================
-// DADOS PRINCIPAIS
-// =========================
+// =======// DADOS PRINCIPAIS
 
 const NOME = "Giovanna Melo";
 
@@ -12,9 +10,9 @@ let minhaBio =
   "com uma paixão por resolver problemas complexos e criar soluções inovadoras.";
 
 
-// =========================
+
 // DATAS DE FORMAÇÃO
-// =========================
+
 
 // ADS
 let anoFormaturaADS = 2027;
@@ -27,10 +25,7 @@ let mesFormaturaEngenharia = 12;
 let diaFormaturaEngenharia = 31;
 
 
-// =========================
 // DATA ATUAL
-// =========================
-
 let dataAtual = new Date();
 
 let anoAtual = dataAtual.getFullYear();
@@ -38,39 +33,43 @@ let mesAtual = dataAtual.getMonth() + 1;
 let diaAtualNumero = dataAtual.getDate();
 
 
-// =========================
-// VARIÁVEIS EXTRAS
-// =========================
 
+// VARIÁVEIS 
 let indefinido;
 let nulo = null;
 
 
-// =========================
-// OBJETO
-// =========================
 
+// OBJETO
 let curso = {
   nome: "Sistemas de Informação",
   semestre: 3,
   disciplinaAtual: "Design focado no usuário"
 };
 
-
 // =========================
+// HABILIDADES
+// =========================
+
+let habilidades = [
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Git e GitHub",
+  "Design Responsivo"
+];
+
+
+
 // ELEMENTOS HTML
-// =========================
-
 const perguntaElemento = document.getElementById("pergunta");
 const botao1 = document.getElementById("opcao1");
 const botao2 = document.getElementById("opcao2");
 const resultadoQuiz = document.getElementById("resultado-quiz");
 
 
-// =========================
-// QUIZ
-// =========================
 
+// QUIZ
 let perguntas = [
   {
     pergunta: "Você prefere trabalhar com...",
@@ -102,9 +101,9 @@ let pontosFront = 0;
 let pontosBack = 0;
 
 
-// =========================
+
 // FUNÇÕES GERAIS
-// =========================
+
 
 
 // MOSTRAR DADOS PESSOAIS
@@ -248,10 +247,23 @@ function mostrarDiaSemana() {
     `Hoje é: ${diaEscrito}`;
 }
 
+// MOSTRAR HABILIDADES
+function mostrarHabilidades() {
 
-// =========================
+  const lista =
+    document.getElementById("listaHabilidades");
+
+  lista.innerHTML = "";
+
+  habilidades.forEach(function (habilidade) {
+
+    lista.innerHTML += `
+      <li>${habilidade}</li>
+    `;
+  });
+}
+
 // FUNÇÕES DO QUIZ
-// =========================
 
 
 // MOSTRAR PERGUNTA
@@ -338,15 +350,16 @@ function configurarEventos() {
 }
 
 
-// =========================
+
 // INICIAR SISTEMA
-// =========================
 
 function iniciarPortfolio() {
 
   mostrarDadosPessoais();
 
   testarTipos();
+
+  mostrarHabilidades();
 
   mostrarFormacao(
     "formaturaADS",
@@ -375,6 +388,163 @@ function iniciarPortfolio() {
   mostrarPergunta();
 }
 
+
+// FORMULÁRIO
+
+
+const formulario =
+  document.getElementById("formularioContato");
+
+const mensagemFormulario =
+  document.getElementById("mensagemFormulario");
+
+
+// VALIDAR EMAIL
+function emailValido(email) {
+
+  return email.includes("@") &&
+         email.includes(".");
+}
+
+
+formulario.addEventListener("submit", function (evento) {
+
+  evento.preventDefault();
+
+  let nome =
+    document.getElementById("nome").value;
+
+  let email =
+    document.getElementById("email").value;
+
+  let mensagem =
+    document.getElementById("mensagem").value;
+
+  // VALIDAÇÃO
+
+  if (nome.trim() === "") {
+
+    mensagemFormulario.innerText =
+      "Digite seu nome.";
+
+    return;
+  }
+
+  if (!emailValido(email)) {
+
+    mensagemFormulario.innerText =
+      "Digite um email válido.";
+
+    return;
+  }
+
+  if (mensagem.length < 10) {
+
+    mensagemFormulario.innerText =
+      "A mensagem deve ter pelo menos 10 caracteres.";
+
+    return;
+  }
+
+  // ENVIO EMAILJS
+
+  emailjs.send(
+
+    "service_8qosawi",
+
+    "template_jp2y3kf",
+
+    {
+      nome: nome,
+      email: email,
+      mensagem: mensagem
+    }
+
+  ).then(function () {
+
+    mensagemFormulario.innerText =
+      "Mensagem enviada com sucesso!";
+
+    formulario.reset();
+
+  }).catch(function (erro) {
+
+    mensagemFormulario.innerText =
+      "Erro ao enviar mensagem.";
+
+    console.log(erro);
+  });
+
+});
+
+// API GITHUB
+
+async function buscarProjetosGithub() {
+
+  const listaProjetos =
+    document.getElementById("listaProjetos");
+
+  listaProjetos.innerText =
+    "Carregando projetos...";
+
+  try {
+
+    let resposta = await fetch(
+      "https://api.github.com/users/wiredgio/repos"
+    );
+
+    let projetos = await resposta.json();
+
+    listaProjetos.innerHTML = "";
+
+    projetos.forEach(function (projeto) {
+
+listaProjetos.innerHTML += `
+
+<div class="cardProjeto">
+
+  <h3>${projeto.name}</h3>
+
+  <p>${projeto.description || "Sem descrição"}</p>
+
+  <a href="${projeto.html_url}" target="_blank">
+    Ver no GitHub →
+  </a>
+
+</div>
+`;
+    });
+
+  } catch (erro) {
+
+    listaProjetos.innerText =
+      "Erro ao carregar projetos.";
+
+    console.log(erro);
+  }
+}
+
+buscarProjetosGithub();
+
+
+// MODO ESCURO
+
+const botaoModo =
+  document.getElementById("modoEscuroClaro");
+
+let modoEscuro = false;
+
+botaoModo.addEventListener("click", function () {
+
+  document.body.classList.toggle("dark-mode");
+
+  modoEscuro = !modoEscuro;
+
+  botaoModo.innerText =
+    modoEscuro
+    ? "○ CLARO"
+    : "○ MODO";
+});
 
 // INICIAR
 iniciarPortfolio();

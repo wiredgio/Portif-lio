@@ -1,0 +1,544 @@
+* {
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+
+  background:
+    #e8dfd1;
+
+  color:
+    #161616;
+
+  font-family:
+    'Cormorant Garamond', serif;
+
+  overflow-x: hidden;
+
+  position: relative;
+}
+
+/* TEXTURA */
+
+.texture {
+
+  position: fixed;
+
+  inset: 0;
+
+  background-image:
+    url("https://www.transparenttextures.com/patterns/old-wall.png");
+
+  opacity: 0.22;
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+/* HERO */
+
+.hero {
+
+  min-height: 100vh;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 80px 30px;
+
+  position: relative;
+
+  text-align: center;
+}
+
+.hero::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      rgba(232,223,209,0.75),
+      rgba(232,223,209,0.88)
+    ),
+
+    url("https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=1974&auto=format&fit=crop");
+
+  background-size: cover;
+
+  background-position: center;
+
+  opacity: 0.2;
+}
+
+.hero-content {
+
+  position: relative;
+
+  max-width: 950px;
+
+  z-index: 2;
+}
+
+h1 {
+
+  font-size: 7rem;
+
+  font-family: 'Cinzel', serif;
+
+  letter-spacing: 3px;
+
+  margin-bottom: 20px;
+
+  text-transform: uppercase;
+}
+
+h2 {
+
+  font-family: 'Cinzel', serif;
+
+  letter-spacing: 2px;
+
+  font-size: 2rem;
+
+  margin-bottom: 30px;
+
+  font-weight: 500;
+}
+
+h3 {
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 1.4rem;
+
+  margin-bottom: 25px;
+
+  letter-spacing: 1px;
+}
+
+p {
+
+  font-size: 1.3rem;
+
+  line-height: 1.8;
+}
+
+/* ORNAMENTO */
+
+.ornament {
+
+  width: 300px;
+  height: 1px;
+
+  background: #161616;
+
+  margin: 30px auto;
+}
+
+/* BOTÃO */
+
+#modoEscuroClaro {
+
+  position: absolute;
+
+  top: 30px;
+  left: 30px;
+
+  background: #111;
+
+  color: #f4eee4;
+
+  border: 1px solid #111;
+
+  padding: 14px 22px;
+
+  font-family: 'Cinzel', serif;
+
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+  z-index: 5;
+}
+
+#modoEscuroClaro:hover {
+
+  background:
+    transparent;
+
+  color: #111;
+}
+
+/* CARDS */
+
+.cards-container {
+
+  width: 92%;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+  gap: 0;
+
+  border: 1px solid rgba(0,0,0,0.35);
+}
+
+.goth-card {
+
+  padding: 60px 40px;
+
+  border-right:
+    1px solid rgba(0,0,0,0.35);
+
+  border-bottom:
+    1px solid rgba(0,0,0,0.35);
+
+  text-align: center;
+
+  min-height: 320px;
+
+  position: relative;
+}
+
+.goth-card:last-child {
+
+  border-right: none;
+}
+
+/* GRID */
+
+.double-grid {
+
+  width: 92%;
+
+  margin: 80px auto;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  border:
+    1px solid rgba(0,0,0,0.35);
+}
+
+.section-box {
+
+  padding: 60px;
+
+  border-right:
+    1px solid rgba(0,0,0,0.35);
+
+  min-height: 650px;
+
+  position: relative;
+}
+
+.section-box:last-child {
+
+  border-right: none;
+}
+
+/* HABILIDADES */
+
+#listaHabilidades {
+
+  list-style: none;
+
+  margin-top: 40px;
+}
+
+#listaHabilidades li {
+
+  margin-bottom: 22px;
+
+  font-size: 1.4rem;
+
+  position: relative;
+
+  padding-left: 28px;
+}
+
+#listaHabilidades li::before {
+
+  content: "✝";
+
+  position: absolute;
+
+  left: 0;
+}
+
+/* QUIZ */
+
+.quiz-buttons {
+
+  display: flex;
+
+  gap: 20px;
+
+  margin-top: 40px;
+}
+
+.quiz-buttons button {
+
+  flex: 1;
+
+  padding: 20px;
+
+  background: #111;
+
+  color: #f4eee4;
+
+  border: 1px solid #111;
+
+  font-family: 'Cinzel', serif;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.quiz-buttons button:hover {
+
+  background:
+    transparent;
+
+  color: #111;
+}
+
+#resultado-quiz {
+
+  margin-top: 50px;
+
+  border-top:
+    1px solid rgba(0,0,0,0.35);
+
+  padding-top: 30px;
+}
+
+/* PROJETOS */
+
+#listaProjetos {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+  gap: 20px;
+
+  margin-top: 40px;
+}
+
+.cardProjeto {
+
+  border:
+    1px solid rgba(0,0,0,0.35);
+
+  padding: 20px;
+
+  transition: 0.3s;
+}
+
+.cardProjeto:hover {
+
+  background:
+    rgba(0,0,0,0.04);
+}
+
+.cardProjeto h3 {
+
+  margin-bottom: 15px;
+}
+
+.cardProjeto p {
+
+  font-size: 1.05rem;
+}
+
+.cardProjeto a {
+
+  display: inline-block;
+
+  margin-top: 20px;
+
+  color: #111;
+
+  text-decoration: none;
+
+  font-family: 'Cinzel', serif;
+}
+
+/* FORM */
+
+form {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+
+  margin-top: 40px;
+}
+
+input,
+textarea {
+
+  padding: 18px;
+
+  background:
+    transparent;
+
+  border:
+    1px solid rgba(0,0,0,0.35);
+
+  font-family:
+    'Cormorant Garamond', serif;
+
+  font-size: 1.1rem;
+
+  outline: none;
+}
+
+textarea {
+
+  min-height: 180px;
+
+  resize: none;
+}
+
+form button {
+
+  background: #111;
+
+  color: #f4eee4;
+
+  border: 1px solid #111;
+
+  padding: 20px;
+
+  font-family: 'Cinzel', serif;
+
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+form button:hover {
+
+  background:
+    transparent;
+
+  color: #111;
+}
+
+/* FOOTER */
+
+footer {
+
+  padding: 80px 20px;
+
+  text-align: center;
+
+  border-top:
+    1px solid rgba(0,0,0,0.35);
+}
+
+footer p {
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 1.3rem;
+}
+
+/* RESPONSIVO */
+
+@media(max-width: 900px) {
+
+  h1 {
+
+    font-size: 4rem;
+  }
+
+  .double-grid {
+
+    grid-template-columns: 1fr;
+  }
+
+  .section-box {
+
+    border-right: none;
+
+    border-bottom:
+      1px solid rgba(0,0,0,0.35);
+  }
+
+  .quiz-buttons {
+
+    flex-direction: column;
+  }
+}
+
+.dark-mode {
+
+  background:
+    #111;
+
+  color:
+    #e8dfd1;
+}
+
+.dark-mode input,
+.dark-mode textarea {
+
+  border:
+    1px solid rgba(255,255,255,0.25);
+
+  color:
+    #e8dfd1;
+}
+
+.dark-mode .cards-container,
+.dark-mode .double-grid,
+.dark-mode .section-box,
+.dark-mode .goth-card {
+
+  border-color:
+    rgba(255,255,255,0.2);
+}
+
+.dark-mode #modoEscuroClaro,
+.dark-mode form button,
+.dark-mode .quiz-buttons button {
+
+  background:
+    #e8dfd1;
+
+  color:
+    #111;
+}
+
+.dark-mode .ornament {
+
+  background:
+    #e8dfd1;
+}

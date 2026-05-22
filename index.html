@@ -2,64 +2,195 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8" />
+
+  <meta charset="UTF-8">
 
   <meta name="viewport"
-        content="width=device-width, initial-scale=1.0" />
+        content="width=device-width, initial-scale=1.0">
 
-  <title>Dev Giovanna Melo</title>
+  <title>Giovanna Melo</title>
+
+  <!-- FONTES -->
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Cormorant+Garamond:wght@300;400;500&display=swap"
+        rel="stylesheet">
 
   <link rel="stylesheet"
-        href="/Portfolio/styles/style.css" />
+        href="style.css">
+
 </head>
 
 <body>
 
-  <main>
+  <!-- TEXTURA -->
+  <div class="texture"></div>
+
+  <!-- HERO -->
+
+  <main class="hero">
 
     <button id="modoEscuroClaro">
-      Modo
+      ○ MODO
     </button>
 
-    <h1 id="meuNome"></h1>
+    <div class="hero-content">
 
-    <h2 id="tituloProfissional"></h2>
+      <h1 id="meuNome"></h1>
 
-    <p id="minhaBio"></p>
+      <h2 id="tituloProfissional"></h2>
 
-    <p id="formaturaADS"></p>
+      <div class="ornament"></div>
 
-    <p id="tempoADS"></p>
-
-    <p id="formaturaEngenharia"></p>
-
-    <p id="tempoEngenharia"></p>
-
-    <p id="notaAluno"></p>
-
-    <p id="diaAtual"></p>
-
-  </main>
-
-
-  <section id="quiz">
-
-    <h2>Descubra seu perfil dev</h2>
-
-    <div id="pergunta-container">
-
-      <p id="pergunta"></p>
-
-      <button id="opcao1"></button>
-
-      <button id="opcao2"></button>
+      <p id="minhaBio"></p>
 
     </div>
 
-    <div id="resultado-quiz"></div>
+  </main>
+
+  <!-- INFORMAÇÕES -->
+
+  <section class="cards-container">
+
+    <div class="goth-card">
+
+      <h3>
+        ANÁLISE E DESENVOLVIMENTO
+      </h3>
+
+      <p id="formaturaADS"></p>
+
+      <p id="tempoADS"></p>
+
+    </div>
+
+    <div class="goth-card">
+
+      <h3>
+        ENGENHARIA DE SOFTWARE
+      </h3>
+
+      <p id="formaturaEngenharia"></p>
+
+      <p id="tempoEngenharia"></p>
+
+    </div>
+
+    <div class="goth-card">
+
+      <h3>
+        STATUS ACADÊMICO
+      </h3>
+
+      <p id="notaAluno"></p>
+
+      <p id="diaAtual"></p>
+
+    </div>
 
   </section>
 
+  <!-- HABILIDADES + QUIZ -->
+
+  <section class="double-grid">
+
+    <section id="habilidades"
+             class="section-box">
+
+      <h2>HABILIDADES</h2>
+
+      <ul id="listaHabilidades"></ul>
+
+    </section>
+
+    <section id="quiz"
+             class="section-box">
+
+      <h2>DESCUBRA SEU PERFIL DEV</h2>
+
+      <div id="pergunta-container">
+
+        <p id="pergunta"></p>
+
+        <div class="quiz-buttons">
+
+          <button id="opcao1"></button>
+
+          <button id="opcao2"></button>
+
+        </div>
+
+      </div>
+
+      <div id="resultado-quiz"></div>
+
+    </section>
+
+  </section>
+
+  <!-- PROJETOS + CONTATO -->
+
+  <section class="double-grid">
+
+    <section id="projetos"
+             class="section-box">
+
+      <h2>MEUS PROJETOS</h2>
+
+      <div id="listaProjetos"></div>
+
+    </section>
+
+    <section id="contato"
+             class="section-box">
+
+      <h2>ENTRE EM CONTATO</h2>
+
+      <form id="formularioContato">
+
+        <input type="text"
+               id="nome"
+               placeholder="Seu nome">
+
+        <input type="text"
+               id="email"
+               placeholder="Seu email">
+
+        <textarea id="mensagem"
+                  placeholder="Sua mensagem"></textarea>
+
+        <button type="submit">
+          ✝ ENVIAR MENSAGEM ✝
+        </button>
+
+      </form>
+
+      <p id="mensagemFormulario"></p>
+
+    </section>
+
+  </section>
+
+  <footer>
+
+    <p>
+      “In tenebris veritas,
+      in codice libertas.”
+    </p>
+
+  </footer>
+<script
+src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+<script>
+emailjs.init("PujylVW-CrDtueuYp");
+</script>
 
   <script src="script.js"></script>
 
